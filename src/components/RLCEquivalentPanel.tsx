@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -18,6 +19,7 @@ import {
 } from '@/utils/math/rlcEquivalent';
 
 export function RLCEquivalentPanel() {
+  const navigate = useNavigate();
   const [componentType, setComponentType] = useState<'R' | 'C' | 'L'>('R');
   const [configuration, setConfiguration] = useState<'series' | 'parallel'>('series');
   const [values, setValues] = useState<string[]>(['100', '100']);
@@ -110,7 +112,11 @@ export function RLCEquivalentPanel() {
   };
 
   return (
-    <ToolPanel title="Series/Parallel R-C-L Equivalent Calculator">
+    <ToolPanel 
+      title="Series/Parallel R-C-L Equivalent"
+      description="Calculate equivalent resistance, capacitance, or inductance for series and parallel combinations."
+      onBack={() => navigate('/')}
+    >
       <div className="space-y-6">
         {/* Component Type Selection */}
         <div>

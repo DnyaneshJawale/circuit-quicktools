@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -17,6 +18,7 @@ import {
 } from '@/utils/math/batteryLife';
 
 export function BatteryLifePanel() {
+  const navigate = useNavigate();
   // Runtime calculation
   const [capacityMah, setCapacityMah] = useState('2000');
   const [currentMa, setCurrentMa] = useState('100');
@@ -113,7 +115,11 @@ export function BatteryLifePanel() {
   };
 
   return (
-    <ToolPanel title="Battery Life Estimator">
+    <ToolPanel 
+      title="Battery Life Estimator"
+      description="Calculate battery runtime, required capacity, or maximum load current with efficiency considerations."
+      onBack={() => navigate('/')}
+    >
       <Tabs defaultValue="runtime" className="w-full">
         <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="runtime">Runtime</TabsTrigger>

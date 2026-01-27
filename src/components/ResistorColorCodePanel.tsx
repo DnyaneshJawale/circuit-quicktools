@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -19,6 +20,7 @@ import {
 } from '@/utils/math/resistorColorCode';
 
 export function ResistorColorCodePanel() {
+  const navigate = useNavigate();
   const [decodeMode, setDecodeMode] = useState<'4band' | '5band'>('4band');
   const [decodedColors, setDecodedColors] = useState<string[]>(['brown', 'red', 'red', 'gold']);
   const [decodedResult, setDecodedResult] = useState<any>(null);
@@ -84,7 +86,11 @@ export function ResistorColorCodePanel() {
   };
 
   return (
-    <ToolPanel title="Resistor Color Code Calculator">
+    <ToolPanel 
+      title="Resistor Color Code"
+      description="Encode and decode 4-band and 5-band resistor color codes with tolerance information."
+      onBack={() => navigate('/')}
+    >
       <Tabs defaultValue="decode" className="w-full">
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="decode">Decode</TabsTrigger>
