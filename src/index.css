@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Circuit QuickTools Design System - Dark engineering theme with cyan/indigo accents */
+
+@layer base {
+  :root {
+    /* Light mode (fallback) */
+    --background: 220 20% 97%;
+    --foreground: 220 30% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 10%;
+
+    --primary: 185 100% 42%;
+    --primary-foreground: 220 30% 5%;
+
+    --secondary: 245 90% 69%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 15% 90%;
+    --muted-foreground: 220 10% 40%;
+
+    --accent: 245 90% 69%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 220 15% 85%;
+    --input: 220 15% 85%;
+    --ring: 185 100% 42%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --result: 185 100% 42%;
+    --result-glow: 185 100% 42% / 0.3;
+    --panel-bg: 220 20% 98%;
+    --derivation-bg: 220 15% 95%;
+  }
+
+  .dark {
+    /* Primary dark background #050816 */
+    --background: 230 52% 5%;
+    --foreground: 210 40% 96%;
+
+    /* Card slightly lighter */
+    --card: 230 40% 8%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 230 40% 10%;
+    --popover-foreground: 210 40% 96%;
+
+    /* Cyan accent #00c2d6 */
+    --primary: 185 100% 42%;
+    --primary-foreground: 230 52% 5%;
+
+    /* Indigo accent #6b67f9 */
+    --secondary: 242 92% 69%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 230 30% 15%;
+    --muted-foreground: 215 20% 60%;
+
+    --accent: 242 92% 69%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 230 30% 18%;
+    --input: 230 30% 15%;
+    --ring: 185 100% 42%;
+
+    /* Custom tokens for dark mode */
+    --result: 185 100% 50%;
+    --result-glow: 185 100% 50% / 0.4;
+    --panel-bg: 230 35% 10%;
+    --derivation-bg: 230 30% 12%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Smooth transitions for theme switching */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Result highlight animation */
+  @keyframes result-pulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.9;
+      transform: scale(1.02);
+    }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(var(--result-glow));
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(var(--result-glow));
+    }
+  }
+
+  .result-animate {
+    animation: result-pulse 0.3s ease-out;
+  }
+
+  .fade-in-up {
+    animation: fade-in-up 0.4s ease-out forwards;
+  }
+
+  .glow-effect {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+
+  /* Focus ring for accessibility */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background;
+  }
+
+  /* Mono font for numbers */
+  .font-mono-result {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    font-feature-settings: "tnum";
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  /* Custom scrollbar for dark theme */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted)) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted));
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+}
