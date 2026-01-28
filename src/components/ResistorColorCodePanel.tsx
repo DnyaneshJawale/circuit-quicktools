@@ -11,6 +11,7 @@ import { ToolPanel } from './ToolPanel';
 import { CopyButton } from './Shared/CopyButton';
 import { Toast } from './Shared/Toast';
 import { formatNumber } from '@/utils/format';
+import { parseValue, isParseError } from '@/utils/units/parseUnit';
 import {
   decode4Band,
   decode5Band,
@@ -57,9 +58,14 @@ export function ResistorColorCodePanel() {
   const handleEncode = () => {
     setEncodedError('');
     try {
-      const resistance = parseFloat(encodeResistance);
-      if (isNaN(resistance) || resistance <= 0) {
-        throw new Error('Resistance must be a positive number');
+      // Parse resistance value with SI unit support (e.g., "4.7k", "10M")
+      const parsed = parseValue(encodeResistance);
+      if (isParseError(parsed)) {
+        throw new Error(parsed.message);
+      }
+      const resistance = parsed.value;
+      if (resistance <= 0) {
+        throw new Error('Resistance must be a positive value');
       }
 
       const result = encodeMode === '4band'
@@ -271,8 +277,8 @@ export function ResistorColorCodePanel() {
               <Label htmlFor="encode-resistance" className="text-sm font-semibold text-foreground">Resistance Value (Ω)</Label>
               <Input
                 id="encode-resistance"
-                type="number"
-                placeholder="e.g., 4700 or 4.7k or 10M"
+                type="text"
+                placeholder="e.g., 4700 or 4.7k or 10M (supports SI prefixes)"
                 value={encodeResistance}
                 onChange={(e) => {
                   setEncodeResistance(e.target.value);
