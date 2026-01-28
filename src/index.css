@@ -2,30 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Circuit QuickTools Design System - Dark engineering theme with cyan/indigo accents */
+/* Circuit QuickTools Design System - Light engineering theme with cyan/indigo accents */
 
 @layer base {
   :root {
-    /* Light mode (fallback) */
-    --background: 220 20% 97%;
-    --foreground: 220 30% 10%;
+    /* Light mode - Primary theme */
+    --background: 220 14% 96%;
+    --foreground: 220 30% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 30% 10%;
+    --card-foreground: 220 30% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 30% 10%;
+    --popover-foreground: 220 30% 12%;
 
-    --primary: 185 100% 42%;
-    --primary-foreground: 220 30% 5%;
+    --primary: 185 100% 39%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 245 90% 69%;
+    --secondary: 242 92% 58%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 15% 90%;
-    --muted-foreground: 220 10% 40%;
+    --muted: 220 14% 88%;
+    --muted-foreground: 220 10% 45%;
 
-    --accent: 245 90% 69%;
+    --accent: 242 92% 58%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -34,41 +34,38 @@
     --success: 160 84% 39%;
     --success-foreground: 0 0% 100%;
 
-    --border: 220 15% 85%;
-    --input: 220 15% 85%;
-    --ring: 185 100% 42%;
+    --border: 220 14% 90%;
+    --input: 220 14% 95%;
+    --ring: 185 100% 39%;
 
     --radius: 0.75rem;
 
-    /* Custom tokens */
-    --result: 185 100% 42%;
-    --result-glow: 185 100% 42% / 0.3;
-    --panel-bg: 220 20% 98%;
-    --derivation-bg: 220 15% 95%;
+    /* Custom tokens - Light theme */
+    --result: 185 100% 39%;
+    --result-glow: 185 100% 39% / 0.15;
+    --panel-bg: 220 14% 97%;
+    --derivation-bg: 220 12% 93%;
   }
 
   .dark {
-    /* Primary dark background #050816 */
+    /* Dark mode theme overlay */
     --background: 230 52% 5%;
-    --foreground: 210 40% 96%;
+    --foreground: 210 40% 98%;
 
-    /* Card slightly lighter */
     --card: 230 40% 8%;
-    --card-foreground: 210 40% 96%;
+    --card-foreground: 210 40% 98%;
 
     --popover: 230 40% 10%;
-    --popover-foreground: 210 40% 96%;
+    --popover-foreground: 210 40% 98%;
 
-    /* Cyan accent #00c2d6 */
     --primary: 185 100% 42%;
     --primary-foreground: 230 52% 5%;
 
-    /* Indigo accent #6b67f9 */
     --secondary: 242 92% 69%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 230 30% 15%;
-    --muted-foreground: 215 20% 60%;
+    --muted: 230 30% 18%;
+    --muted-foreground: 215 20% 72%;
 
     --accent: 242 92% 69%;
     --accent-foreground: 0 0% 100%;
@@ -79,15 +76,14 @@
     --success: 160 84% 39%;
     --success-foreground: 0 0% 100%;
 
-    --border: 230 30% 18%;
-    --input: 230 30% 15%;
+    --border: 230 30% 20%;
+    --input: 230 30% 18%;
     --ring: 185 100% 42%;
 
-    /* Custom tokens for dark mode */
     --result: 185 100% 50%;
     --result-glow: 185 100% 50% / 0.4;
     --panel-bg: 230 35% 10%;
-    --derivation-bg: 230 30% 12%;
+    --derivation-bg: 230 30% 13%;
   }
 }
 
