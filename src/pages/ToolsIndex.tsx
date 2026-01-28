@@ -16,16 +16,16 @@ import {
 
 const TOOLS = [
   {
-    id: 'equivalent-resistance',
-    title: 'Equivalent Resistance',
-    description: 'Calculate series or parallel resistor combinations with step-by-step derivation.',
-    icon: Zap,
-    path: '/resistance'
+    id: 'equivalent-components',
+    title: 'Equivalent Components',
+    description: 'Calculate series/parallel equivalent resistances, capacitances, or inductances with step-by-step derivation.',
+    icon: Layers,
+    path: '/components-equivalent'
   },
   {
     id: 'led-resistor',
     title: 'LED Resistor',
-    description: 'Find the right current-limiting resistor for your LED circuit.',
+    description: 'Find the right current-limiting resistor for your LED circuit with power dissipation.',
     icon: Lightbulb,
     path: '/led'
   },
@@ -39,7 +39,7 @@ const TOOLS = [
   {
     id: 'rc-time-constant',
     title: 'RC Time Constant',
-    description: 'Calculate τ, cutoff frequency, and visualize step response.',
+    description: 'Compute τ (time constant), cutoff frequency (fc), and transient response timing.',
     icon: Timer,
     path: '/rc'
   },
@@ -65,13 +65,6 @@ const TOOLS = [
     path: '/color-code'
   },
   {
-    id: 'rlc-equivalent',
-    title: 'RLC Equivalent',
-    description: 'Calculate series/parallel equivalent R, C, and L combinations.',
-    icon: Layers,
-    path: '/rlc-equivalent'
-  },
-  {
     id: 'battery-life',
     title: 'Battery Life Estimator',
     description: 'Estimate runtime from capacity, current, and efficiency.',
@@ -86,22 +79,22 @@ export default function ToolsIndex() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero section */}
-      <header className="relative overflow-hidden">
+      <header className="relative overflow-hidden border-b border-border">
         {/* Gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10" />
         
-        {/* Grid pattern overlay */}
+        {/* Enhanced Grid pattern overlay */}
         <div 
-          className="absolute inset-0 opacity-[0.02]"
+          className="absolute inset-0 opacity-[0.04] pattern-grid"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
           }}
         />
 
         <div className="relative container max-w-5xl mx-auto px-4 py-16 sm:py-24">
           <div className="text-center space-y-6">
             {/* Logo/Icon */}
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/20 text-primary mb-4">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/20 text-primary mb-4 border border-primary/30">
               <Zap className="w-8 h-8" />
             </div>
 
@@ -116,7 +109,7 @@ export default function ToolsIndex() {
             </p>
 
             {/* Disclaimer */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 border border-border text-sm text-muted-foreground">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 border border-primary/20 text-sm text-muted-foreground">
               <span className="w-2 h-2 rounded-full bg-success animate-pulse" />
               For design/sizing only — validate calculations for production use.
             </div>

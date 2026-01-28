@@ -10,6 +10,7 @@ import { AlertCircle, Copy } from 'lucide-react';
 import { ToolPanel } from './ToolPanel';
 import { CopyButton } from './Shared/CopyButton';
 import { Toast } from './Shared/Toast';
+import { formatNumber } from '@/utils/format';
 import {
   decode4Band,
   decode5Band,
@@ -102,7 +103,7 @@ export function ResistorColorCodePanel() {
           <div className="space-y-4">
             {/* Band count selector */}
             <div>
-              <Label>Resistor Type</Label>
+              <Label className="text-sm font-semibold text-foreground">Resistor Type</Label>
               <div className="flex gap-2 mt-2">
                 <Button
                   variant={decodeMode === '4band' ? 'default' : 'outline'}
@@ -129,7 +130,7 @@ export function ResistorColorCodePanel() {
 
             {/* Color selectors */}
             <div>
-              <Label className="mb-4 block">Select Band Colors</Label>
+              <Label className="mb-4 block text-sm font-semibold text-foreground">Select Band Colors</Label>
               <div className="grid gap-3">
                 {decodedColors.map((color, idx) => (
                   <div key={idx} className="flex items-center gap-3">
@@ -189,7 +190,7 @@ export function ResistorColorCodePanel() {
                     <div>
                       <span className="text-sm text-muted-foreground">Resistance Value</span>
                       <div className="text-3xl font-bold text-result font-mono mt-2">
-                        {decodedResult.value} Ω
+                        {formatNumber(decodedResult.value, { unit: 'Ω', sigfigs: 4 })}
                       </div>
                     </div>
 
@@ -242,7 +243,7 @@ export function ResistorColorCodePanel() {
           <div className="space-y-4">
             {/* Mode selector */}
             <div>
-              <Label>Resistor Type</Label>
+              <Label className="text-sm font-semibold text-foreground">Resistor Type</Label>
               <div className="flex gap-2 mt-2">
                 <Button
                   variant={encodeMode === '4band' ? 'default' : 'outline'}
@@ -267,11 +268,11 @@ export function ResistorColorCodePanel() {
 
             {/* Resistance input */}
             <div>
-              <Label htmlFor="encode-resistance">Resistance Value (Ω)</Label>
+              <Label htmlFor="encode-resistance" className="text-sm font-semibold text-foreground">Resistance Value (Ω)</Label>
               <Input
                 id="encode-resistance"
                 type="number"
-                placeholder="e.g., 4700"
+                placeholder="e.g., 4700 or 4.7k or 10M"
                 value={encodeResistance}
                 onChange={(e) => {
                   setEncodeResistance(e.target.value);
@@ -283,7 +284,7 @@ export function ResistorColorCodePanel() {
 
             {/* Tolerance selector */}
             <div>
-              <Label htmlFor="encode-tolerance">Tolerance</Label>
+              <Label htmlFor="encode-tolerance" className="text-sm font-semibold text-foreground">Tolerance</Label>
               <Select value={encodeTolerance} onValueChange={(v) => {
                 setEncodeTolerance(v);
                 setEncodedResult(null);

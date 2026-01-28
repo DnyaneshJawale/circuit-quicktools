@@ -4,7 +4,8 @@ import { ToolPanel, PanelInputs, PanelResults, ResultValue } from './ToolPanel';
 import { UnitInput } from './Shared/UnitInput';
 import { CopyButton } from './Shared/CopyButton';
 import { DerivationBlock } from './DerivationBlock';
-import { parseValue, isParseError, formatSI } from '@/utils/units/parseUnit';
+import { parseValue, isParseError } from '@/utils/units/parseUnit';
+import { formatNumber, formatRaw } from '@/utils/format';
 import { sumSeries, parallel } from '@/utils/math/resistors';
 import { Plus, Trash2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -45,7 +46,7 @@ export function EquivalentResistancePanel() {
     ];
   });
 
-  const [sigFigs, setSigFigs] = useState(3);
+  
 
   // Update URL when state changes
   useEffect(() => {
@@ -118,7 +119,7 @@ export function EquivalentResistancePanel() {
     : '';
 
   const resultText = result.value !== null
-    ? `Equivalent Resistance (${mode}): ${formatSI(result.value, sigFigs, 'Ω')}`
+    ? `Equivalent Resistance (${mode}): ${formatNumber(result.value, { sigfigs: 3, unit: 'Ω' })}`
     : '';
 
   return (
@@ -209,30 +210,7 @@ export function EquivalentResistancePanel() {
             </button>
           </div>
 
-          {/* Sig figs control */}
-          <div className="space-y-2">
-            <label className="block text-sm font-medium text-foreground">
-              Significant Figures
-            </label>
-            <div className="flex gap-2">
-              {[2, 3, 4, 5].map((sf) => (
-                <button
-                  key={sf}
-                  onClick={() => setSigFigs(sf)}
-                  className={cn(
-                    'px-4 py-2 rounded-lg text-sm font-medium',
-                    'transition-all duration-200 min-h-[44px]',
-                    'focus-ring',
-                    sigFigs === sf
-                      ? 'bg-secondary text-secondary-foreground'
-                      : 'bg-muted text-muted-foreground hover:text-foreground'
-                  )}
-                >
-                  {sf}
-                </button>
-              ))}
-            </div>
-          </div>
+          {/* Sig figs control removed: centralized formatting used (default 3 sig figs) */}
 
           {/* Info box */}
           <div className="p-4 rounded-xl bg-muted/50 border border-border">
@@ -256,13 +234,13 @@ export function EquivalentResistancePanel() {
               <>
                 <ResultValue
                   label={`Equivalent Resistance (${mode})`}
-                  value={formatSI(result.value, sigFigs, '')}
+                  value={formatNumber(result.value, { sigfigs: 3 })}
                   unit="Ω"
                   highlight
                 />
-                
+
                 <div className="pt-2 text-xs text-muted-foreground font-mono">
-                  Raw: {result.value.toPrecision(10)} Ω
+                  Raw: {formatRaw(result.value)} Ω
                 </div>
 
                 <div className="flex gap-2">

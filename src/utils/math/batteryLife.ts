@@ -11,6 +11,20 @@ export interface BatteryLifeResult {
   steps: string[];
 }
 
+export const COMMON_BATTERIES = {
+  'AA (alkaline)': { capacity: 2500, voltage: 1.5 },
+  'AA (NiMH)': { capacity: 2000, voltage: 1.2 },
+  'AAA (alkaline)': { capacity: 1000, voltage: 1.5 },
+  'AAA (NiMH)': { capacity: 750, voltage: 1.2 },
+  'C (alkaline)': { capacity: 8000, voltage: 1.5 },
+  'D (alkaline)': { capacity: 18000, voltage: 1.5 },
+  'PP3 (9V)': { capacity: 500, voltage: 9.0 },
+  'CR2032': { capacity: 220, voltage: 3.0 },
+  'LiPo 1S': { capacity: 1000, voltage: 3.7 },
+  'LiPo 2S': { capacity: 1000, voltage: 7.4 },
+  '18650 Li-ion': { capacity: 2600, voltage: 3.7 }
+};
+
 /**
  * Calculate battery runtime
  * Runtime (hours) = Capacity (mAh) / Load (mA)
@@ -135,20 +149,3 @@ export function calculateMaxLoadCurrent(
 
   return maxLoadCurrent;
 }
-
-/**
- * Get common battery capacities for reference
- */
-export const COMMON_BATTERIES = {
-  'AA (alkaline)': { capacity: 2500, voltage: 1.5 },
-  'AA (NiMH)': { capacity: 2000, voltage: 1.2 },
-  'AAA (alkaline)': { capacity: 1000, voltage: 1.5 },
-  'AAA (NiMH)': { capacity: 750, voltage: 1.2 },
-  'C (alkaline)': { capacity: 8000, voltage: 1.5 },
-  'D (alkaline)': { capacity: 18000, voltage: 1.5 },
-  'PP3 (9V)': { capacity: 500, voltage: 9.0 },
-  'CR2032': { capacity: 220, voltage: 3.0 },
-  'LiPo 1S': { capacity: 1000, voltage: 3.7 },
-  'LiPo 2S': { capacity: 1000, voltage: 7.4 },
-  '18650 Li-ion': { capacity: 2600, voltage: 3.7 }
-};

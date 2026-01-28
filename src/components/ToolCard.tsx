@@ -21,6 +21,7 @@ export function ToolCard({ title, description, icon: Icon, onClick, className }:
         'transition-all duration-300 ease-out',
         'focus-ring',
         'min-h-[140px]',
+        'glass-card',
         className
       )}
       aria-label={`Open ${title} calculator`}
@@ -30,7 +31,7 @@ export function ToolCard({ title, description, icon: Icon, onClick, className }:
       
       <div className="relative z-10 space-y-3">
         <div className="flex items-center gap-3">
-          <div className="p-2 rounded-lg bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
+          <div className="p-2 rounded-lg bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors border border-primary/20">
             <Icon className="h-5 w-5" />
           </div>
           <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">

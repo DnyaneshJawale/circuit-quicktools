@@ -4,7 +4,8 @@ import { ToolPanel, PanelInputs, PanelResults, ResultValue } from './ToolPanel';
 import { UnitInput } from './Shared/UnitInput';
 import { CopyButton } from './Shared/CopyButton';
 import { DerivationBlock } from './DerivationBlock';
-import { parseValue, isParseError, formatSI } from '@/utils/units/parseUnit';
+import { parseValue, isParseError } from '@/utils/units/parseUnit';
+import { formatNumber } from '@/utils/format';
 import { ohmsLaw } from '@/utils/math/ohmsLaw';
 import { cn } from '@/lib/utils';
 
@@ -96,7 +97,7 @@ export function OhmsLawPanel() {
   }, [knownPair, voltage, current, resistance, power]);
 
   const resultText = result.data
-    ? `V=${formatSI(result.data.voltage, 3, 'V')}, I=${formatSI(result.data.current, 3, 'A')}, R=${formatSI(result.data.resistance, 3, 'Ω')}, P=${formatSI(result.data.power, 3, 'W')}`
+    ? `V=${formatNumber(result.data.voltage, { sigfigs: 3, unit: 'V' })}, I=${formatNumber(result.data.current, { sigfigs: 3, unit: 'A' })}, R=${formatNumber(result.data.resistance, { sigfigs: 3, unit: 'Ω' })}, P=${formatNumber(result.data.power, { sigfigs: 3, unit: 'W' })}`
     : '';
 
   return (
@@ -197,25 +198,25 @@ export function OhmsLawPanel() {
                 <div className="grid grid-cols-2 gap-4">
                   <ResultValue
                     label="Voltage"
-                    value={formatSI(result.data.voltage, 4, '')}
+                    value={formatNumber(result.data.voltage, { sigfigs: 4 })}
                     unit="V"
                     highlight={!currentOption.fields.includes('voltage')}
                   />
                   <ResultValue
                     label="Current"
-                    value={formatSI(result.data.current, 4, '')}
+                    value={formatNumber(result.data.current, { sigfigs: 4 })}
                     unit="A"
                     highlight={!currentOption.fields.includes('current')}
                   />
                   <ResultValue
                     label="Resistance"
-                    value={formatSI(result.data.resistance, 4, '')}
+                    value={formatNumber(result.data.resistance, { sigfigs: 4 })}
                     unit="Ω"
                     highlight={!currentOption.fields.includes('resistance')}
                   />
                   <ResultValue
                     label="Power"
-                    value={formatSI(result.data.power, 4, '')}
+                    value={formatNumber(result.data.power, { sigfigs: 4 })}
                     unit="W"
                     highlight={!currentOption.fields.includes('power')}
                   />

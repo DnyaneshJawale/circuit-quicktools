@@ -4,7 +4,8 @@ import { ToolPanel, PanelInputs, PanelResults, ResultValue } from './ToolPanel';
 import { UnitInput } from './Shared/UnitInput';
 import { CopyButton } from './Shared/CopyButton';
 import { DerivationBlock } from './DerivationBlock';
-import { parseValue, isParseError, formatSI } from '@/utils/units/parseUnit';
+import { parseValue, isParseError } from '@/utils/units/parseUnit';
+import { formatNumber, formatRaw } from '@/utils/format';
 import { rcTimeConstant } from '@/utils/math/rcCircuit';
 
 export function RCTimeConstantPanel() {
@@ -36,13 +37,13 @@ export function RCTimeConstantPanel() {
   }, [resistance, capacitance]);
 
   const resultText = result.data
-    ? `RC Circuit: τ = ${formatSI(result.data.timeConstant, 3, 's')}, fc = ${formatSI(result.data.cutoffFrequency, 3, 'Hz')}`
+    ? `RC Circuit: τ = ${formatNumber(result.data.timeConstant, { sigfigs: 3, unit: 's' })}, fc = ${formatNumber(result.data.cutoffFrequency, { sigfigs: 3, unit: 'Hz' })}`
     : '';
 
   return (
     <ToolPanel
       title="RC Time Constant"
-      description="Calculate time constant and cutoff frequency"
+      description="Calculate τ (R×C), cutoff frequency, and charging response timing for RC filters and transient analysis"
       onBack={() => navigate('/')}
     >
       <div className="grid lg:grid-cols-[1fr,380px] gap-8">
@@ -97,7 +98,7 @@ export function RCTimeConstantPanel() {
                       {percent.toFixed(1)}%
                     </div>
                     <div className="w-20 text-xs font-mono text-muted-foreground text-right">
-                      {formatSI(time, 2, 's')}
+                      {formatNumber(time, { sigfigs: 2, unit: 's' })}
                     </div>
                   </div>
                 ))}
@@ -118,23 +119,23 @@ export function RCTimeConstantPanel() {
                 <div className="space-y-4">
                   <ResultValue
                     label="Time Constant (τ)"
-                    value={formatSI(result.data.timeConstant, 4, '')}
+                    value={formatNumber(result.data.timeConstant, { sigfigs: 4 })}
                     unit="s"
                     highlight
                   />
 
                   <ResultValue
                     label="Cutoff Frequency (fc)"
-                    value={formatSI(result.data.cutoffFrequency, 4, '')}
+                    value={formatNumber(result.data.cutoffFrequency, { sigfigs: 4 })}
                     unit="Hz"
                   />
 
                   <div className="p-3 rounded-lg bg-muted/50 border border-border space-y-1">
                     <p className="text-xs text-muted-foreground font-mono">
-                      τ = R × C = {result.data.timeConstant.toExponential(4)} s
+                      τ = R × C = {formatRaw(result.data.timeConstant)} s
                     </p>
                     <p className="text-xs text-muted-foreground font-mono">
-                      fc = 1/(2πτ) = {result.data.cutoffFrequency.toFixed(4)} Hz
+                      fc = 1/(2πτ) = {formatNumber(result.data.cutoffFrequency, { sigfigs: 4, unit: 'Hz' })}
                     </p>
                   </div>
                 </div>

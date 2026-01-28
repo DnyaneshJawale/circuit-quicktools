@@ -4,7 +4,8 @@ import { ToolPanel, PanelInputs, PanelResults, ResultValue } from './ToolPanel';
 import { UnitInput } from './Shared/UnitInput';
 import { CopyButton } from './Shared/CopyButton';
 import { DerivationBlock } from './DerivationBlock';
-import { parseValue, isParseError, formatSI } from '@/utils/units/parseUnit';
+import { parseValue, isParseError } from '@/utils/units/parseUnit';
+import { formatNumber } from '@/utils/format';
 import { ledResistor } from '@/utils/math/led';
 import { AlertTriangle } from 'lucide-react';
 
@@ -50,7 +51,7 @@ export function LEDResistorPanel() {
   }, [vSource, vForward, targetCurrent]);
 
   const resultText = result.data
-    ? `LED Resistor: ${formatSI(result.data.nearestE24, 3, 'Ω')} (E24), Power: ${formatSI(result.data.powerDissipation, 3, 'W')}, Use ${result.data.suggestedWattage}W rated`
+    ? `LED Resistor: ${formatNumber(result.data.nearestE24, { sigfigs: 3, unit: 'Ω' })} (E24), Power: ${formatNumber(result.data.powerDissipation, { sigfigs: 3, unit: 'W' })}, Use ${result.data.suggestedWattage}W rated`
     : '';
 
   return (
@@ -114,26 +115,26 @@ export function LEDResistorPanel() {
                 <div className="space-y-4">
                   <ResultValue
                     label="Calculated Resistance"
-                    value={formatSI(result.data.resistorValue, 4, '')}
+                    value={formatNumber(result.data.resistorValue, { sigfigs: 4 })}
                     unit="Ω"
                   />
                   
                   <ResultValue
                     label="Nearest E24 Standard Value"
-                    value={formatSI(result.data.nearestE24, 3, '')}
+                    value={formatNumber(result.data.nearestE24, { sigfigs: 3 })}
                     unit="Ω"
                     highlight
                   />
 
                   <ResultValue
                     label="Actual Current (with E24)"
-                    value={formatSI(result.data.actualCurrent, 3, '')}
+                    value={formatNumber(result.data.actualCurrent, { sigfigs: 3 })}
                     unit="A"
                   />
 
                   <ResultValue
                     label="Power Dissipation"
-                    value={formatSI(result.data.powerDissipation, 3, '')}
+                    value={formatNumber(result.data.powerDissipation, { sigfigs: 3 })}
                     unit="W"
                   />
 

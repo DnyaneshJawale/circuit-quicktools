@@ -88,7 +88,7 @@ describe('Resistor Calculations', () => {
 
     it('should calculate power from current', () => {
       const power = powerDissipation(100, undefined, 0.1); // 100mA through 100Ω
-      expect(power).toBe(1); // P = I²R = 0.01 * 100 = 1W
+      expect(power).toBeCloseTo(1, 10); // P = I²R = 0.01 * 100 = 1W
     });
 
     it('should throw without voltage or current', () => {

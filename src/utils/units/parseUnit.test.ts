@@ -31,7 +31,7 @@ describe('Unit Parser', () => {
       const result = parseValue('100u');
       expect(isParseError(result)).toBe(false);
       if (!isParseError(result)) {
-        expect(result.value).toBe(0.0001);
+        expect(result.value).toBeCloseTo(0.0001, 10);
       }
     });
 

@@ -132,7 +132,7 @@ export function BatteryLifePanel() {
           <div className="space-y-4">
             {/* Quick battery selector */}
             <div>
-              <Label className="mb-2 block">Quick Select Battery</Label>
+              <Label className="mb-2 block text-sm font-semibold text-foreground">Quick Select Battery</Label>
               <Select value={selectedBattery} onValueChange={useBattery}>
                 <SelectTrigger>
                   <SelectValue placeholder="Choose a common battery..." />
@@ -149,7 +149,7 @@ export function BatteryLifePanel() {
 
             {/* Capacity input */}
             <div>
-              <Label htmlFor="runtime-capacity">Battery Capacity (mAh)</Label>
+              <Label htmlFor="runtime-capacity" className="text-sm font-semibold text-foreground">Battery Capacity (mAh)</Label>
               <Input
                 id="runtime-capacity"
                 type="number"
@@ -166,7 +166,7 @@ export function BatteryLifePanel() {
 
             {/* Current input */}
             <div>
-              <Label htmlFor="runtime-current">Load Current (mA)</Label>
+              <Label htmlFor="runtime-current" className="text-sm font-semibold text-foreground">Load Current (mA)</Label>
               <Input
                 id="runtime-current"
                 type="number"
@@ -183,7 +183,7 @@ export function BatteryLifePanel() {
 
             {/* Efficiency input */}
             <div>
-              <Label htmlFor="runtime-efficiency">Efficiency (%) - Optional</Label>
+              <Label htmlFor="runtime-efficiency" className="text-sm font-semibold text-foreground">Efficiency (%) - Optional</Label>
               <div className="flex gap-2 mt-2">
                 <Input
                   id="runtime-efficiency"
@@ -257,7 +257,7 @@ export function BatteryLifePanel() {
           <div className="space-y-4">
             {/* Runtime input */}
             <div>
-              <Label htmlFor="capacity-hours">Desired Runtime (hours)</Label>
+              <Label htmlFor="capacity-hours" className="text-sm font-semibold text-foreground">Desired Runtime (hours)</Label>
               <Input
                 id="capacity-hours"
                 type="number"
@@ -274,7 +274,7 @@ export function BatteryLifePanel() {
 
             {/* Load current input */}
             <div>
-              <Label htmlFor="capacity-current">Load Current (mA)</Label>
+              <Label htmlFor="capacity-current" className="text-sm font-semibold text-foreground">Load Current (mA)</Label>
               <Input
                 id="capacity-current"
                 type="number"
@@ -291,7 +291,7 @@ export function BatteryLifePanel() {
 
             {/* Efficiency input */}
             <div>
-              <Label htmlFor="capacity-efficiency">Efficiency (%) - Optional</Label>
+              <Label htmlFor="capacity-efficiency" className="text-sm font-semibold text-foreground">Efficiency (%) - Optional</Label>
               <div className="flex gap-2 mt-2">
                 <Input
                   id="capacity-efficiency"
@@ -346,7 +346,7 @@ export function BatteryLifePanel() {
           <div className="space-y-4">
             {/* Capacity input */}
             <div>
-              <Label htmlFor="current-capacity">Battery Capacity (mAh)</Label>
+              <Label htmlFor="current-capacity" className="text-sm font-semibold text-foreground">Battery Capacity (mAh)</Label>
               <Input
                 id="current-capacity"
                 type="number"
@@ -363,7 +363,7 @@ export function BatteryLifePanel() {
 
             {/* Runtime input */}
             <div>
-              <Label htmlFor="current-runtime">Desired Runtime (hours)</Label>
+              <Label htmlFor="current-runtime" className="text-sm font-semibold text-foreground">Desired Runtime (hours)</Label>
               <Input
                 id="current-runtime"
                 type="number"
@@ -380,7 +380,7 @@ export function BatteryLifePanel() {
 
             {/* Efficiency input */}
             <div>
-              <Label htmlFor="current-efficiency">Efficiency (%) - Optional</Label>
+              <Label htmlFor="current-efficiency" className="text-sm font-semibold text-foreground">Efficiency (%) - Optional</Label>
               <div className="flex gap-2 mt-2">
                 <Input
                   id="current-efficiency"

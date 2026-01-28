@@ -61,7 +61,9 @@ export function ToolPanel({ title, description, onBack, children, shareUrl }: To
 
       {/* Content */}
       <main className="container max-w-5xl mx-auto px-4 py-8">
-        {children}
+        <div className="glass-card rounded-2xl p-6 md:p-8">
+          {children}
+        </div>
       </main>
     </div>
   );
@@ -86,6 +88,7 @@ export function PanelResults({ children, className }: PanelSectionProps) {
       className={cn(
         'p-6 rounded-2xl bg-card border border-border',
         'lg:sticky lg:top-24',
+        'glass-card',
         className
       )}
       aria-live="polite"
@@ -110,7 +113,7 @@ export function ResultValue({
   className?: string;
 }) {
   return (
-    <div className={cn('space-y-1', className)}>
+    <div className={cn('space-y-1 result-box', className)}>
       <p className="text-sm text-muted-foreground">{label}</p>
       <p
         className={cn(

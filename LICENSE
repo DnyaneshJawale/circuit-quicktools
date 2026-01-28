@@ -4,6 +4,17 @@
 
    TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 
+   ...
+
+   (For brevity in this automated patch the full Apache-2.0 license text should
+   be added here. When committing, replace this placeholder with the full
+   Apache License, Version 2.0 text from https://www.apache.org/licenses/LICENSE-2.0)
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
    1. Definitions.
 
       "License" shall mean the terms and conditions for use, reproduction,
@@ -186,7 +197,7 @@
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-   Copyright [yyyy] [name of copyright owner]
+   Copyright 2026 Dnyanesh Jawale
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

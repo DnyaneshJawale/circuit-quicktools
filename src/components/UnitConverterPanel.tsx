@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { ToolPanel, PanelInputs, PanelResults, ResultValue } from './ToolPanel';
 import { UnitInput } from './Shared/UnitInput';
 import { CopyButton } from './Shared/CopyButton';
-import { parseValue, isParseError, formatSI } from '@/utils/units/parseUnit';
+import { parseValue, isParseError } from '@/utils/units/parseUnit';
+import { formatNumber } from '@/utils/format';
 import { cn } from '@/lib/utils';
 import { ArrowRight } from 'lucide-react';
 
@@ -51,7 +52,7 @@ export function UnitConverterPanel() {
       prefix,
       name,
       value: baseValue / multiplier,
-      formatted: formatSI(baseValue, 4, unitInfo.symbol),
+      formatted: formatNumber(baseValue, { sigfigs: 4, unit: unitInfo.symbol }),
       display: `${(baseValue / multiplier).toPrecision(6)} ${prefix}${unitInfo.symbol}`
     })).filter(c => c.value >= 0.001 && c.value < 10000);
 
@@ -62,7 +63,7 @@ export function UnitConverterPanel() {
   }, [inputValue, unitInfo]);
 
   const resultText = result.data
-    ? `${formatSI(result.data.baseValue, 4, unitInfo.symbol)} = ${result.data.baseValue.toExponential(6)} ${unitInfo.symbol}`
+    ? `${formatNumber(result.data.baseValue, { sigfigs: 4, unit: unitInfo.symbol })} = ${result.data.baseValue.toExponential(6)} ${unitInfo.symbol}`
     : '';
 
   return (

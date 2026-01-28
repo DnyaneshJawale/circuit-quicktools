@@ -120,7 +120,7 @@ export function RLCEquivalentPanel() {
       <div className="space-y-6">
         {/* Component Type Selection */}
         <div>
-          <Label className="mb-3 block">Component Type</Label>
+          <Label className="mb-3 block text-sm font-semibold text-foreground">Component Type</Label>
           <div className="grid grid-cols-3 gap-2">
             {(['R', 'C', 'L'] as const).map((type) => (
               <Button
@@ -138,7 +138,7 @@ export function RLCEquivalentPanel() {
 
         {/* Configuration Selection */}
         <div>
-          <Label className="mb-3 block">Configuration</Label>
+          <Label className="mb-3 block text-sm font-semibold text-foreground">Configuration</Label>
           <div className="grid grid-cols-2 gap-2">
             <Button
               variant={configuration === 'series' ? 'default' : 'outline'}
@@ -163,13 +163,13 @@ export function RLCEquivalentPanel() {
 
         {/* Value Inputs */}
         <div>
-          <Label className="mb-3 block">
+          <Label className="mb-3 block text-sm font-semibold text-foreground">
             {nameMap[componentType]} Values ({unitMap[componentType]})
           </Label>
           <div className="space-y-3">
             {values.map((value, idx) => (
               <div key={idx} className="flex gap-2 items-center">
-                <span className="text-sm font-mono min-w-[50px] text-muted-foreground">
+                <span className="text-sm font-semibold min-w-[50px] text-foreground">
                   {componentType}{idx + 1}:
                 </span>
                 <Input
