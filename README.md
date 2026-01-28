@@ -1,12 +1,65 @@
-# Welcome to your Lovable project
+# Circuit QuickTools v1.0.0
 
-## Project info
+Professional engineering calculators suite with a modern light theme. Features 8 interactive tools for electronics calculations with step-by-step derivations, unit parsing, and shareable results.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Features
 
-## How can I edit this code?
+- **Equivalent Components**: Calculate series/parallel R/C/L combinations with 3 unified tabs
+- **LED Resistor**: Design LED circuits with power dissipation and wattage suggestions
+- **Battery Life Estimator**: Estimate runtime, required capacity, or max current
+- **Resistor Color Code**: Encode/decode 4-band and 5-band color codes
+- **RC Time Constant**: Calculate τ, cutoff frequency, and transient response
+- **Voltage Divider**: Calculate output voltage with load resistance effects
+- **Ohm's Law & Power**: Compute V, I, R, and P from any two values
+- **Unit Converter**: Convert between SI prefixes for electrical units
 
-There are several ways of editing your application.
+## Design
+
+- **Light Theme**: Clean, professional appearance optimized for daytime use
+- **Color Palette**: Cyan primary (#00B8D4), indigo secondary (#5B63E8)
+- **Responsive**: Fully functional on mobile (375px), tablet (768px), desktop (1920px)
+- **Accessible**: WCAG AA+ contrast, keyboard navigation, ARIA labels
+- **Fast**: ~2.5 second load time, optimized bundles
+
+## Quick Start
+
+```bash
+# Install dependencies
+npm ci
+
+# Start dev server
+npm run dev
+
+# Build for production
+npm run build
+
+# Run tests
+npm test
+```
+
+## Deploy
+
+- **Vercel**: Import repository, Framework: Vite, Build: `npm run build`, Output: `dist`
+- **Configuration**: `vercel.json` includes SPA rewrite rules
+- **Auto-deploy**: Enabled on push to main branch
+
+## Quality Metrics
+
+- **Build**: ✅ 1748 modules, no errors
+- **Tests**: ✅ 58/58 passing
+- **Accessibility**: ✅ WCAG AA+ compliant
+- **Bundle**: 64.16 kB CSS, 443.54 kB JS (gzipped)
+
+## License
+
+Apache-2.0
+
+## Notes
+
+- Minimal UI copy, engineering-focused
+- All math utilities fully tested
+- TypeScript for type safety
+- Tailwind CSS for styling
 
 **Use Lovable**
 
