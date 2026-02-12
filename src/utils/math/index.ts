@@ -8,5 +8,4 @@ export * from './capacitors';
 export * from './inductors';
 export * from './led';
 export * from './voltageDivider';
-export * from './rcCircuit';
 export * from './ohmsLaw';

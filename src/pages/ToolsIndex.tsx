@@ -36,13 +36,7 @@ const TOOLS = [
     icon: SplitSquareVertical,
     path: '/divider'
   },
-  {
-    id: 'rc-time-constant',
-    title: 'RC Time Constant',
-    description: 'Compute τ (time constant), cutoff frequency (fc), and transient response timing.',
-    icon: Timer,
-    path: '/rc'
-  },
+
   {
     id: 'ohms-law',
     title: "Ohm's Law & Power",

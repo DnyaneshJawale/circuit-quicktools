@@ -7,7 +7,6 @@ import ToolsIndex from "./pages/ToolsIndex";
 import { EquivalentComponentsPanel } from "./components/EquivalentComponentsPanel";
 import { LEDResistorPanel } from "./components/LEDResistorPanel";
 import { VoltageDividerPanel } from "./components/VoltageDividerPanel";
-import { RCTimeConstantPanel } from "./components/RCTimeConstantPanel";
 import { OhmsLawPanel } from "./components/OhmsLawPanel";
 import { UnitConverterPanel } from "./components/UnitConverterPanel";
 import { ResistorColorCodePanel } from "./components/ResistorColorCodePanel";
@@ -31,7 +30,6 @@ const App = () => (
             <Route path="/rlc-equivalent" element={<Navigate to="/components-equivalent" replace />} />
             <Route path="/led" element={<LEDResistorPanel />} />
             <Route path="/divider" element={<VoltageDividerPanel />} />
-            <Route path="/rc" element={<RCTimeConstantPanel />} />
             <Route path="/ohms" element={<OhmsLawPanel />} />
             <Route path="/units" element={<UnitConverterPanel />} />
             <Route path="/color-code" element={<ResistorColorCodePanel />} />
