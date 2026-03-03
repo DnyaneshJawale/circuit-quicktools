@@ -206,24 +206,10 @@ This project follows professional coding standards:
 - Comprehensive unit tests
 - WCAG AA+ accessibility
 
-## Support
-
-For issues, calculations, or feature requests:
-1. Check existing tools and their capabilities
-2. Verify input format (SI units supported)
-3. Ensure browser compatibility
-4. Report issues with reproduction steps
-
----
-
 **Version**: 1.0.0  
 **Last Updated**: January 29, 2026  
 **Built with**: React, TypeScript, Tailwind CSS, Vite  
 **Hosted**: Vercel
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
 
 ## What technologies are used for this project?
 
@@ -235,14 +221,3 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
